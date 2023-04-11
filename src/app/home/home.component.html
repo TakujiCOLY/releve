@@ -13,27 +13,30 @@
               <div class="row">
                 <div class="col-md-6 col-sm-12 form-group">
                   <label for="">Prénom</label>
-                  <input type="text" class="form-control form-control-sm" formControlName="prenom"
+                  <input type="text" class="form-control form-control-sm" [attr.disabled]="true"
+                    formControlName="prenom"
                     [ngClass]="{'is-invalid': submitted && editForm.controls['prenom'].errors}">
                 </div>
                 <div class="col-md-6 col-sm-12 form-group">
                   <label for="">nom</label>
-                  <input type="text" class="form-control form-control-sm" formControlName="nom"
+                  <input type="text" class="form-control form-control-sm" [attr.disabled]="true" formControlName="nom"
                     [ngClass]="{'is-invalid': submitted && editForm.controls['nom'].errors}">
                 </div>
                 <div class="col-md-12 col-sm-12 form-group">
                   <label for="">Adresse</label>
-                  <input type="text" class="form-control form-control-sm" formControlName="adresse"
+                  <input type="text" class="form-control form-control-sm" [attr.disabled]="true"
+                    formControlName="adresse"
                     [ngClass]="{'is-invalid': submitted && editForm.controls['adresse'].errors}">
                 </div>
                 <div class="col-md-6 col-sm-12 form-group">
                   <label for="">Région</label>
-                  <input type="text" class="form-control form-control-sm" formControlName="region"
+                  <input type="text" class="form-control form-control-sm" [attr.disabled]="true"
+                    formControlName="region"
                     [ngClass]="{'is-invalid': submitted && editForm.controls['region'].errors}">
                 </div>
                 <div class="col-md-6 col-sm-12 form-group">
                   <label for="">Pays</label>
-                  <input type="text" class="form-control form-control-sm" formControlName="pays"
+                  <input type="text" class="form-control form-control-sm" [attr.disabled]="true" formControlName="pays"
                     [ngClass]="{'is-invalid': submitted && editForm.controls['pays'].errors}">
                 </div>
               </div>
@@ -56,6 +59,7 @@
                 <div class="col-md-6 col-sm-12 form-group">
                   <label for="">Nature Compte</label>
                   <input type="text" class="form-control form-control-sm" formControlName="natureCompte"
+                    [attr.disabled]="true"
                     [ngClass]="{'is-invalid': submitted && editForm.controls['natureCompte'].errors}">
                 </div>
                 <div class="col-md-6 col-sm-12 form-group">

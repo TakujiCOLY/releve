@@ -36,15 +36,15 @@ export class HomeComponent implements OnInit {
 
   initForm(): void {
     this.editForm = this.fb.group({
-      prenom: ['', Validators.required],
-      nom: ['', Validators.required],
-      adresse: ['', Validators.required],
-      region: ['', Validators.required],
-      pays: ['', Validators.required],
+      prenom: ['MIN ECONOMIA E FINANCAS', Validators.required],
+      nom: [''],
+      adresse: ['BISSAUSINHO', Validators.required],
+      region: ['BOLAMA', Validators.required],
+      pays: ['GUINEE-BISSAU', Validators.required],
       compte: ['', Validators.required],
       dateAncienSolde: ['', Validators.required],
       ancienSolde: ['', Validators.required],
-      natureCompte: ['', Validators.required],
+      natureCompte: ['CPT COURANT', Validators.required],
       fichier: ['', Validators.required]
     });
   }
@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit {
                 table: {
                   widths: ['100%'],
                   body: [
-                    [this.editForm.value.nom.toUpperCase() + '\n\n' + this.editForm.value.prenom.toUpperCase() + '\n\n' + this.editForm.value.adresse.toUpperCase() + '\n\n' + this.editForm.value.region.toUpperCase() + '\n' + this.editForm.value.pays.toUpperCase() + '\n\n']
+                    [this.editForm.value.prenom.toUpperCase() + '\n\n' + this.editForm.value.adresse.toUpperCase() + '\n\n' + this.editForm.value.region.toUpperCase() + '\n' + this.editForm.value.pays.toUpperCase() + '\n\n']
                   ]
                 }
               }
