@@ -75,16 +75,12 @@
               </div>
             </fieldset>
           </div>
-          <div class="col-md-12 col-sm-12">
+          <div class="col-md-12 col-sm-12 d-flex justify-content-between">
             <button type="submit" class="btn btn-success btn-sm">Charger</button>
+            <button *ngIf="records.length > 0" class="btn btn-success btn-sm" (click)="downloadPdf()">Télécharger PDF</button>
           </div>
         </div>
       </form>
-    </div>
-    <div class="col-md-12 col-sm-12 mb-2" *ngIf="records.length > 0">
-      <div class="zone-bouton">
-        <button class="btn btn-success btn-sm" (click)="downloadPdf()">Télécharger PDF</button>
-      </div>
     </div>
     <div class="col-md-12 col-sm-12">
       <table class="table-content">

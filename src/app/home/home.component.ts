@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit {
           this.debit += -element['MNTDEV'];
         }
       });
-      console.log();
       this.editForm.patchValue({
         compte: this.beforeRecords[0]['COMPTE']
       });
@@ -81,7 +80,8 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.records = this.beforeRecords;
-    this.difference += parseInt(this.editForm.value.ancienSolde, 10);
+    const ancienSolde: number = parseInt(this.editForm.value.ancienSolde, 10);
+    this.difference += ancienSolde;
   }
 
   downloadPdf(): void {
@@ -128,7 +128,7 @@ export class HomeComponent implements OnInit {
               ['', 'Ancien solde compte au ' + this.editForm.value.dateAncienSolde, '', '', { text: this.editForm.value.ancienSolde < 0 ? formatNumber((-parseInt(this.editForm.value.ancienSolde, 10)), this.locale, '3.2-4') : '', style: 'column' }, { text: this.editForm.value.ancienSolde > 0 ? formatNumber((parseInt(this.editForm.value.ancienSolde, 10)), this.locale, '3.2-4') : '', style: 'column' }]
             ]
               .concat(this.records.map((record, i) => [this.datePipe.transform(record['DATOPER'], 'dd.MM'), record['LIBELLE'], record['NOOPER'], this.datePipe.transform(record['DATVAL'], 'dd.MM.yyyy'), { text: record['MNTDEV'] < 0 ? formatNumber((-record['MNTDEV']), this.locale, '3.2-4') : '', style: 'column' }, { text: record['MNTDEV'] > 0 ? formatNumber(record['MNTDEV'], this.locale, '3.2-4') : '', style: 'column' }]))
-              .concat([['', 'Total des mouvements', '', '', '', '']])
+              .concat([['', 'Total des mouvements', '', '', { text: formatNumber( this.debit, this.locale, '3.2-4'), style: 'column' }, { text: formatNumber( this.credit, this.locale, '3.2-4'), style: 'column' }]])
               .concat([['', 'Nouveau solde au ' + this.datePipe.transform(this.records[0]['DATOPER'], 'dd.MM.yyyy'), '', '', { text: this.difference < 0 ? formatNumber((-this.difference), this.locale, '3.2-4') : '', style: 'column' }, { text: this.difference > 0 ? formatNumber(this.difference, this.locale, '3.2-4') : '', style: 'column' }]])
           }
         },
